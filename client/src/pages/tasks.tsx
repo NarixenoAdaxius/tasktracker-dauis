@@ -97,25 +97,25 @@ export default function Tasks() {
 
   const logout = async () => {
     try {
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem('token')
       await axios.post('/api/users/logout', {}, {
         headers: { 'x-auth-token': token },
-      });
-      localStorage.removeItem('token');
-      router.push('/');
+      })
+      localStorage.removeItem('token')
+      router.push('/')
       toast({
         title: "Logged Out",
         description: "You have been successfully logged out.",
-      });
+      })
     } catch (error) {
-      console.error('Error logging out:', error);
+      console.error('Error logging out:', error)
       toast({
         title: "Error",
         description: "Failed to log out. Please try again.",
         variant: "destructive",
-      });
+      })
     }
-  };
+  }
 
   return (
     <div className="min-h-screen bg-gray-100">
