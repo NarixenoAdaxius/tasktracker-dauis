@@ -1,14 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
-    async rewrites() {
-      return [
-        {
-          source: '/api/:path*',
-          destination: 'http://localhost:5000/api/:path*', // Proxy to Backend
-        },
-      ];
-    },
-  };
-  
-  export default nextConfig;
+  reactStrictMode: true,
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: `${process.env.BACKEND_URL}/api/:path*`, // Proxy to Backend using env variable
+      },
+    ];
+  },
+};
+
+export default nextConfig;
